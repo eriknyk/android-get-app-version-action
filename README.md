@@ -34,3 +34,16 @@ jobs:
         prerelease: false
 ```
 
+## Outputs
+
+### `versionName`
+
+The **versionName** value from AndroidManifest.xml
+
+### `versionCode` 
+  
+The **versionCode** value from AndroidManifest.xml
+
+###  `nextVersionCode`
+    
+The **Next versionCode** value, since it is an integer value it will contains the respective `versionCode + 1`  value.
