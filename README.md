@@ -20,7 +20,7 @@ jobs:
     
     - name: Bump version and push tag
       id: get_version
-      uses: eriknyk/android-get-app-version-action@master
+      uses: eriknyk/android-get-app-version-action@v1.0.0
     
     - name: Create Release (Other action that uses app versionCode & versionName)
       id: create_release
