@@ -1,0 +1,21 @@
+name: 'Github get android app version'
+description: 'get android app versionName and versionCode from AndroidManifest file'
+author: 'Erik Amaru Ortiz'
+inputs:
+  manifestPath:
+    description: "AndroidManifest file path"
+    required: true
+    default: "./AndroidManifest.xml"
+runs:
+  using: "node12"
+  main: "index.js"
+outputs:
+  versionName:
+    description: 'Version Name'
+  versionCode:
+    description: 'Version Code'
+  nextVersionCode:
+    description: 'Next Version Code'
+branding:
+  color: 'blue'
+  icon: 'anchor'
