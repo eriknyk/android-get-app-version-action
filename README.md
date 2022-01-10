@@ -18,9 +18,9 @@ jobs:
       with:
         fetch-depth: '0'
     
-    - name: Bump version and push tag
+    - name: Get app version
       id: get_version
-      uses: eriknyk/android-get-app-version-action@v1.0.0
+      uses: eriknyk/android-get-app-version-action@v1.0.1
     
     - name: Create Release (Other action that uses app versionCode & versionName)
       id: create_release
