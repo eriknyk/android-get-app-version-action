@@ -28,13 +28,22 @@ try {
 
     const nextversionCode = `${Number.parseInt(currentVersionCode) + 1}`
 
-    core.info('versionName = ' + currentVersionName)
-    core.info('versionCode = ' + currentVersionCode)
-    core.info('nextversionCode = ' + nextversionCode)
+    core.info('versionName: ' + currentVersionName)
+    core.info('versionCode: ' + currentVersionCode)
+    core.info('nextversionCode: ' + nextversionCode)
 
-    core.setOutput("versionName", currentVersionName);
-    core.setOutput("versionCode", currentVersionCode);
-    core.setOutput("nextversionCode", nextversionCode);
+    setOutput("versionName", currentVersionName);
+    setOutput("versionCode", currentVersionCode);
+    setOutput("nextversionCode", nextversionCode);
 } catch (error) {
     core.setFailed(error.message);
+}
+
+function setOutput(name, value) {
+    const filePath = process.env['GITHUB_OUTPUT'] || '';
+    if (filePath) {
+        return file_command_1.issueFileCommand('OUTPUT', file_command_1.prepareKeyValueMessage(name, value));
+    }
+    process.stdout.write(os.EOL);
+    command_1.issueCommand('set-output', { name }, utils_1.toCommandValue(value));
 }
